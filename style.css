@@ -1,0 +1,431 @@
+/*
+Theme Name: Gift Ideas & Items
+Theme URI: None
+Description: N/A
+Version: 1.0
+Author: Zakir Sajib
+*/
+
+html,body{height: 100%;}
+html {
+	margin:0;
+	padding:0;
+	border:0;
+}
+body{line-height:1;}
+
+body{
+
+	margin: 0;
+	padding: 0;
+}
+
+a	{text-decoration: none; }
+ol,ul{list-style:none; margin: 0; padding: 0;}
+img{border: none; margin: 0; padding: 0;}
+
+body{font-family: Arial, Helvetica, Sans-serif, serif;}
+
+/*Basic layout*/
+#wrapper-container{background: #FFF0D7 url(images/background-wallpaper.gif)repeat-x 0 0; height:52px; margin: 10px 0; height: 150%;}
+#wrapper{width:965px; margin: 0 auto; background: #FFF; height: 100%; line-height: 1;}
+
+#wrapper-inner{width:915px; margin: 0 auto; background:transparent; height: 100%; line-height: 1;}
+
+
+
+
+
+/*Header layout*/
+#header{}
+#col_1, #col_2, #col_3{float: left;}
+.social-icons{float: right;}
+.s-icons{color:#999999; font-weight: bold; font-size: 13.3px; float: left;}
+ul.s-icons li{display: inline-block; clear:both;}
+.s-icons li{padding: 0 5px 0;}
+#col_3{ padding: 15px 0 0 0; width: 385px;}
+.fblike{float: left;}
+
+
+.screen-reader-text{display: none;}
+
+.search-bar{float: right; }
+#s{background: url(images/search-bg.gif) no-repeat 0 0; width: 280px; height: 41px; border: 0;}
+#searchsubmit{background: url(images/search-button.gif) no-repeat 0 0; width: 41px; height: 37px; border: 0; text-indent: -999em;}
+
+
+
+
+
+
+
+/*Menu layout*/
+#menu-container{clear:both;}
+#menu-container{
+	background: url(images/nav-bg-new.png) no-repeat 0 0; 
+	height: 45px;  width: 915px; 
+	float: left;  /*important*/
+	position: absolute; /*important*/
+	top:115px; /*important*/
+	z-index: 9999;
+}
+
+#menu-container ul {list-style: none;}
+#menu-container li {
+	display: block; 
+	float: left; 
+	padding:12px 10px 14px; 
+	border-right: 2px groove #ccff99;
+	position: relative;/*important*/
+}
+
+#menu-container li a { 
+	color: #fff;
+	font-family: Arial;
+	font-size: 19px;
+}
+
+#menu-container li.current_page_item a{
+	
+}
+
+#menu-container li:hover a, #menu-container li a:hover, #menu-container a.hover{
+	
+}
+
+#menu-container li:hover{
+	/* For Internet Explorer 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#cccccc);
+    /* For Internet Explorer 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#cccccc)";    
+        
+	/*IE 7 fallback*/
+	background: #99cc66;
+background-image: linear-gradient(bottom, #699C35 41%, #78C42B 66%, #81C73B 83%);
+background-image: -o-linear-gradient(bottom, #699C35 41%, #78C42B 66%, #81C73B 83%);
+background-image: -moz-linear-gradient(bottom, #699C35 41%, #78C42B 66%, #81C73B 83%);
+background-image: -webkit-linear-gradient(bottom, #699C35 41%, #78C42B 66%, #81C73B 83%);
+background-image: -ms-linear-gradient(bottom, #699C35 41%, #78C42B 66%, #81C73B 83%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.41, #699C35),
+	color-stop(0.66, #78C42B),
+	color-stop(0.83, #81C73B)
+);
+}
+
+
+#menu-container li:hover:first-child{
+	-moz-border-radius: 8px 0px 0px 8px; 
+    -webkit-border-radius: 8px 0px 0px 8px; 
+    -border-radius: 8px 0px 0px 8px;  
+}
+
+#menu-container li.current_page_item:first-child{
+	-moz-border-radius: 8px 0px 0px 8px; 
+    -webkit-border-radius: 8px 0px 0px 8px; 
+    -border-radius: 8px 0px 0px 8px;  
+}
+
+
+#menu-container li.current_page_item, .current_page_parent{
+	/* For Internet Explorer 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#cccccc);
+    /* For Internet Explorer 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#cccccc)";    
+        
+	/*IE 7 fallback*/
+	background: #99cc66;	
+	
+background-image: linear-gradient(bottom, #699C35 41%, #78C42B 66%, #81C73B 83%);
+background-image: -o-linear-gradient(bottom, #699C35 41%, #78C42B 66%, #81C73B 83%);
+background-image: -moz-linear-gradient(bottom, #699C35 41%, #78C42B 66%, #81C73B 83%);
+background-image: -webkit-linear-gradient(bottom, #699C35 41%, #78C42B 66%, #81C73B 83%);
+background-image: -ms-linear-gradient(bottom, #699C35 41%, #78C42B 66%, #81C73B 83%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.41, #699C35),
+	color-stop(0.66, #78C42B),
+	color-stop(0.83, #81C73B)
+);
+}
+
+#menu-container li.current_page_item a, #menu-container li.current_page_parent a{
+
+
+}
+
+/*Drop down menu
+------------------*/
+
+
+.nv ul{ display:none;margin:0;padding: 14px 0 35px 20px;position:absolute;top:100%;left:0%;width:230px; border: 1px solid #CCC;
+	-moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+  background: #FFF;
+}
+
+.nv ul li{ float:left; background: #FFF;  }
+
+.nv ul li a{ font-size: 13.3px!important; color: #6D6D6D!important; text-align: center;}
+
+.nv ul li a:hover,.nv ul li a:active,.nv ul li:hover a{ color: #99cc66!important; text-decoration: underline;}
+
+.nv ul ul{ top:0%;left:100%}
+
+.nv ul ul li a:hover,.nv ul ul li a:active,.nv ul ul li:hover a{}
+
+.nv li:hover ul ul{ display:none}
+
+.nv li:hover ul,.nv ul li:hover ul{ display:block}
+
+
+.sub-menu li a{text-align: left; padding: 3px ; line-height: 2.5em;}
+
+
+
+.sub-menu li.current_page_item a{
+	color:#003366;
+}
+
+.sub-menu li.current_page_item { background: #FFF!important;}
+
+/*
+.sub-menu li:hover a, .sub-menu li a:hover, .sub-menu li a.hover{
+	width: 0px;
+height: 0px;
+border-style: solid;
+border-width: 5px 0 5px 10px;
+border-color: transparent transparent transparent #007bff;
+line-height: 0px;
+_border-color: #000000 #000000 #000000 #007bff;
+_filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+
+}
+*/
+
+
+.sub-menu li{
+	display: block; 
+	float: left; 
+	position: relative; 
+	padding:0!important; 
+	/* border-right: 0!important; */
+	min-width: 100px;
+}
+
+.sub-menu li:hover{
+	background: #FFF!important;
+}
+
+.sub-menu li:hover:first-child{
+	-moz-border-radius: 0px!important; 
+    -webkit-border-radius: 0px!important; 
+    -border-radius: 0px!important;  
+}
+
+
+.sub-menu li:nth-child(2n+1) {border-right: 1px solid #CCC!important; height:100%;}
+.sub-menu li:nth-child(2n+2) {border-right: 0!important; padding-left: 20px!important; }
+
+
+
+/*Home page*/
+#main-content{clear: both; position: relative; top:65px;}
+#slider{float: left; width:680px;}
+#gift-finder{float: right; }
+#gift-finder{background: url(images/ribbon-bg.png) no-repeat 0 0; width: 233px; height: 302px; margin: -23px 0;}
+.gift-finder-form {position: absolute; top: 125px; margin-left: 40px;}
+
+
+/*Perfect dropdown list with custom background image For all browsers
+-----------------------------------------------------------------------*/
+div.select-one{
+	background: url(images/dropdownlist.png) no-repeat 0px 0px; border: 0;
+	width:186px; 
+	height: 28px; 
+	overflow: hidden;
+	padding: 0 0 7px 0;
+}
+
+
+.select-one select{
+   background: transparent;
+   width: 215px;
+   padding: 5px;
+   font-size: 13.4px; 
+   color: #6C6C6C; 
+   border: 1px;
+   height: 28px;
+}
+
+/*Drop down select box background : Only for webkit browsers. 
+----------------------------*/
+/*
+select {
+  -webkit-appearance: button;
+  -webkit-border-radius: 2px;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-padding-end: 20px;
+  -webkit-padding-start: 2px;
+  -webkit-user-select: none;
+			
+	
+  background-image: url('images/dropdownlist.png') ;
+  background-position: center right;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+*/
+
+
+
+
+#submit{
+	float: right; 
+	background: url(images/gift-finder-search-button.gif) no-repeat 0 0; 
+	width:85px; 
+	height: 35px;
+	border: 0;
+	display: block;
+	margin: 5px 0;
+	color: #FFF;
+	font-size: 16px;
+	bottom: 0;
+}
+
+/*Carousel Layour*/
+.slide-content-container{ padding: 0 10px 0; position: absolute; top:0;}
+.slide-title {}
+.slide-content {width:315px;}
+.slide-content li{font-size: 13.5px; line-height: 1.3em; list-style-type: square;color: #000; margin-left: 25px;}
+.slide-content p{color:#393838; font-size:13.3px; line-height: 1.3em;}
+h1.gift-title{color: #cc3399; font-weight: bold; font-size: 34px; line-height: 1;}
+
+
+/*Top picks*/
+#top-picks{
+	background: url(images/toppicks-bg.png) no-repeat 0 0;
+	width:915px;
+	height: 227px;
+	position: relative;
+
+}
+.top-picks-content{padding: 2px;}
+h2.top-picks-title{color: #cc3399; font-weight: bold; font-size: 28px; line-height: 0;}
+.top-picks-title{padding:0 0 5px 34px;}
+
+#jcarousel {margin: 0 auto;}
+
+#jcarousel img {
+	border: 1px solid #CCC;
+	-moz-border-radius: 3px; 
+    -webkit-border-radius: 3px; 
+    -border-radius: 3px; 
+
+}
+
+/*Top pics carousel navigation*/
+#ui-carousel-next, #ui-carousel-prev {
+	width: 28px;
+	height: 27px;
+	background: url(images/arrow-left.png) transparent center center no-repeat;
+	display: block;
+	position: absolute;
+	top: 113.5px;
+	z-index: 100;
+}
+
+#ui-carousel-next {
+	right: 6px;
+	background-image: url(images/arrow-right.png);
+}
+
+#ui-carousel-prev {
+	left: 6px;
+}
+
+#ui-carousel-next > span, #ui-carousel-prev > span {
+	display: none;
+}
+
+
+
+
+/*Gifts for men, woman ....
+----------------------------*/
+#gift-box{width: 915px;}
+
+.col_1_gift-men, .col_2_gift-women, .col_3_gift-baby, .col_4_gift-occassions{width:210px; float: left;}
+.col_1_gift-men, .col_2_gift-women, .col_3_gift-baby{padding-right: 25px;}
+
+.men-title, .women-title, .baby-title, .occassions-title{width:210px; height: 35px;}
+.men-photo, .women-photo, .baby-photo, .occassions-photo, .gift-list{padding-top: 10px;}
+.men-title{background: url(images/giftmen.png) no-repeat 0 0; }
+.women-title{background: url(images/giftwomen.png) no-repeat 0 0;} 
+.baby-title{background: url(images/giftbaby.png) no-repeat 0 0;} 
+.occassions-title{background: url(images/giftocc.png) no-repeat 0 0;}
+
+
+h3.gift-box-title{color: #FFF; font-weight: bold; font-size: 18px; line-height: 0; text-align: left; position: relative; left:5px; top:16px;}
+
+.gift-list li{list-style-type: disc; position: relative; left: 20px; font-size: 12px; line-height: 1.5em; color:#393838; }
+
+-webkit-input-placeholder {
+   color: #CCC;
+   font-weight: bold;
+}
+
+-moz-placeholder {
+   color: #CCC;
+   font-weight: bold;
+}
+
+
+input:placeholder {
+   color: #CCC;
+   font-weight: bold;
+}
+
+/*upcoming Tikcer*/
+
+#upcoming-ticker{background: url(images/upcoming-bg.png) no-repeat 0 0; width:915px; height: 34px;}
+.upcoming-title{float:left; background: url(images/upcoming-title.png) no-repeat 0 0; width:168px; height: 34px;}
+h4.upcoming-title-h4{color: #FFF; font-size: 14px; text-align: left; line-height: 0; margin: 0; position: relative; top:16px; left: 5px;}
+.upcoming-news{float: left; width:615px;}
+.upcoming-news li{color: #333; font-size: 13.5px; text-align: left; list-style-type: none; width: 615px; margin: 9px 0 0 9px;}
+.upcoming-news a{color: #333; font-size: 13.5px; font-weight: bold;}
+.upcoming-news a:hover{text-decoration: underline;}
+.find-gifts{float: right; right: 10px; line-height: 0; margin: 0; position: relative; top:2px;}
+.find-gifts li{display: inline-table;}
+h5.find-gifts-h5, .find-gifts a{text-transform: uppercase; color: #CC3399; font-weight: bold; font-size: 14.5px; line-height: 0; margin: 0; }
+.find-gifts img{top:4px; line-height: 0; position: relative;}
+
+
+
+/*Footer layout*/
+#footer-container{background: url(images/footer-bg.png) no-repeat 0 0; width:915px; height: 200px; padding: 5px 0;}
+.footer-inner {padding: 20px 0 0 20px;}
+small{color:#333333;}
+.footer_col_1, .footer_col_2, .footer_col_3{float: left; height: 100%;}
+.footer_col_1{width:325px;}
+.footer_col_2{width:170px; padding-left:40px; padding-right: 20px;}
+.footer_col_3{width:330px; padding-right: 0px;}
+
+.footer_col_1 p, .footer_col_3 p{color: #333333; font-size: 12px; line-height: 1.8em;}
+.footer-inner h4{color: #333333; font-size: 14px; line-height: 0;}
+.footer_col_2 li{line-height: 1.3em;}
+.footer_col_2 a{color:#333333; font-size: 12px; font-weight: bold;}
+
+.footer_col_3 input#newsletter{background: url(images/newsletter-input.png) no-repeat 0 0; width:231px; height: 24px; border: 0;}
+
+.footer_col_3 input#newsletter-button{background: url(images/newsletter-submit.png) no-repeat 0 0; width:84px; height: 24px; border: 0; color: #FFF; font-weight: bold; font-size: 13.5px;}
