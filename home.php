@@ -2,6 +2,8 @@
 /*Template name: Home*/
 get_header();
 global $post;
+update_option('current_result', '');
+update_option('current_sort', '');
 ?>
 
 <div id="main-content">
@@ -170,30 +172,7 @@ $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent 
 <div style="clear:both">&nbsp;</div>
 <div id="upcoming-ticker">
 	
-	<div class="upcoming-title"><h4 class="upcoming-title-h4">Upcoming Occassion:</h4></div>
-	
-	<div class="upcoming-news">
-		<ul>
-				<?php
-					query_posts('post_type=upcoming' );
-					while (have_posts()) : the_post();  
-					$custom = get_post_custom();
-				?>
-				
-				<li>
-				<?php echo $custom["upcoming_date"][0]; ?>, <a href="<?php echo $custom["upcoming_title_link"][0]; ?>"><?php echo $custom["upcoming_title"][0]; ?></a>: <?php echo $custom["upcoming_descr"][0]; ?>
-				</li>
-				
-				<?php endwhile;?>
-	</ul>
-				
-	</div>
-	<div class="find-gifts">
-		<ul>
-			<li><h5 class="find-gifts-h5"><a href="#">FIND GIFTS</a></h5></li>
-			<li><a href="#"><img src="<?php bloginfo('template_url');?>/images/upcoming-occassions-arrow.png"></a></li>
-		</ul>
-	</div>
+	<?php upcoming_ticker();?>
 
 </div>
 

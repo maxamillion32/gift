@@ -1,13 +1,9 @@
 <style type="text/css">
 	
-* {
-  	border: none;
-}
-	
 #up-date, #up-title, #up-link, #up-descr{  
 	padding: 9px;  
 	border: solid 1px #E5E5E5;  
-	 outline: 0;  
+	outline: 0;  
 	font: normal 13px/100% Verdana, Tahoma, sans-serif;    
 	background: #FFFFFF;  
 	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;

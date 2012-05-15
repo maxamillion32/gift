@@ -26,6 +26,7 @@
 <?php wp_enqueue_script('widget', get_bloginfo('template_url') .'/js/jquery.ui.widget.min.js','',0,false); ?>
 <?php wp_enqueue_script('rcarousel', get_bloginfo('template_url') .'/js/jquery.ui.rcarousel.min.js','',0,false); ?>
 <?php wp_enqueue_script('jplaceholder', get_bloginfo('template_url') .'/js/jquery.placeholder.js','',0,false); ?>
+<?//php wp_enqueue_script('selectcalendar', get_bloginfo('template_url') . '/js/selectcal.js', array('jquery'));?>
 
 
 
