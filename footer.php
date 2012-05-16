@@ -41,6 +41,8 @@
 
 </div></div></div> <!-- End of wrapper, wrapper-container, wrapper-inner -->
  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4fab94974df927e0"></script>
+ <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f9d4553386c391b"></script>
+
 <?php wp_footer();?>
 </body>
 </html>

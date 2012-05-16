@@ -58,7 +58,7 @@ function my_register_sidebars() {
 	
 		/*General Sidebar*/
 		$category_sidebar=array(
-			'id' => 'cat_sidebar',
+			'id' => 'category_sidebar',
 			'name' => __( 'Category page Sidebar' ),
 			'description' => __( 'This is for google ad in left sidebar of category page.' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',

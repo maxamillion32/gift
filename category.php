@@ -10,7 +10,16 @@ get_header();
 ?>
 
 <div id="cat-sidebar" class="left-sidebar">	
- 		
+	
+	<div class="cat-title"></div>
+	
+	
+	<div style="clear:both">&nbsp;</div>
+	 
+	
+	<div class="cat-upper">		
+ 		<div class="cat-inner">	
+		
 		<?php
     		if (is_category()) {
    				 $this_category = get_category($cat);
@@ -43,17 +52,40 @@ get_header();
 
 
 <?php } ?>		
+		
+		<div style="clear:both">&nbsp;</div>
+			
+				<?php if ( is_active_sidebar( 'category_sidebar' ) ) : ?>
+						<?php dynamic_sidebar( 'category_sidebar' ); ?>
+				<?php else: ?>
+					<img src="<?php bloginfo('template_url');?>/images/160x600.jpg" alt="" />
+				<?php endif;?>
+			
 							
-				
+		</div>	
+	</div> <!-- End cat upper-->		
 			
 </div>
 
 <div id="right-content" class="right-col">
 			
 			<!-- Category Title-->
-			<h1 class="archive"><?php single_cat_title(); ?></h1>
+			<h1 class="cat-h1"><?php single_cat_title(); ?></h1>
 			<!-- Social Icons-->
 			
+			<div class="cat-social-icons">
+				
+				<!-- AddThis Button BEGIN -->
+				<div class="addthis_toolbox_top addthis_default_style ">
+				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+				<a class="addthis_button_tweet"></a>
+				<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+				</div>
+				<!-- AddThis Button END -->
+			
+			</div>
+			
+			<div style="clear:both">&nbsp;</div>
 			
 			<!-- Category descriptions-->	
 			<div class="cat-descr">
@@ -78,11 +110,11 @@ get_header();
 			<div class="product-pagination">
 				
 					<div class="results">
-						<form method="post" action="">
+						<form name="prd-qry" method="post" action="">
 								<div class="show-col">
 									
 										<span class="show">Show</span>
-										<select name="showresults" id="showresults"> 
+										<select name="showresults" id="showresults" onChange="this.form.submit();"> 
 										
 										<?php
 										$results = get_option('current_result', $results);
@@ -104,9 +136,11 @@ get_header();
 								
 								<div class="sort-col">
 										<span class="show">Sort By</span>
-										<select name="sort" id="sort">
+										<select name="sort" id="sort" onChange="this.form.submit();">
 									
 									<?php 
+										
+									
 										$sort = get_option('current_sort', $sort); 
 										
 										if (isset($_POST['sort'])){
@@ -117,7 +151,7 @@ get_header();
 											$paged=0;
 				
 										}
-										
+									
 									?>
 			<option <?php if($sort=='prod_popularity'){ echo 'selected="selected"';}?>value="prod_popularity">Popularity</option>
 			<option <?php if($sort=='prod_picks'){ echo 'selected="selected"';}?> value="prod_picks">Top Picks</option>
@@ -126,7 +160,7 @@ get_header();
 			<option <?php if($sort=='low'){ echo 'selected="selected"';}?> value="low">Lowest Price</option>
 										</select>
 								</div>
-							<input type="submit" value="Go">
+							<input type="hidden" value="Go" id="cat-submit">
 						</form>
 					</div>
 					
@@ -249,7 +283,6 @@ get_header();
 </div>
 
 </div>
-
 
 <?php wp_reset_query();?>
 
