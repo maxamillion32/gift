@@ -1,6 +1,6 @@
-<style type="text/css">
-	
-#up-date, #up-title, #up-link, #up-descr{  
+<?php
+echo '<style type="text/css" media="screen">
+      	#up-date, #up-title, #up-link, #up-descr{  
 	padding: 9px;  
 	border: solid 1px #E5E5E5;  
 	outline: 0;  
@@ -10,7 +10,6 @@
 	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 } 
-
 .lbl_1, .lbl_2, .lbl_3, .lbl_4 {
 	float: left;
 	text-align: left;
@@ -19,8 +18,7 @@
 	font-family:"Century Gothic"; font-size: 12px; font-weight:bold;
 	margin: 10px 0;
 }
-</style>
-<?php
+      </style>';
 
 add_action('init', 'upcoming_occassions_register');
 function upcoming_occassions_register() {

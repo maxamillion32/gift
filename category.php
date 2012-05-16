@@ -283,7 +283,6 @@ $ribbon=0;
 					<?php $ribbon_data = get_post_meta($post->ID, "prod_picks", true); ?>
 					<?php if($ribbon_data=='Y'){?>
 					
-					<!-- <div><span class="ribbon-area"></span></div> -->
 					<div class="product-box">
 
 						<div><span class="ribbon-area-one"></span></div>				

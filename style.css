@@ -94,13 +94,13 @@ ul.s-icons li{display: inline-block; clear:both;}
 }
 
 #menu-container li:hover{
-	/* For Internet Explorer 5.5 - 7 */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#cccccc);
-    /* For Internet Explorer 8 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#cccccc)";    
-        
-	/*IE 7 fallback*/
-	background: #99cc66;
+/* For Internet Explorer 5.5 - 7 */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#cccccc);
+/* For Internet Explorer 8 */
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#cccccc)";    
+    
+/*IE 7 fallback*/
+background: #99cc66;
 background-image: linear-gradient(bottom, #699C35 41%, #78C42B 66%, #81C73B 83%);
 background-image: -o-linear-gradient(bottom, #699C35 41%, #78C42B 66%, #81C73B 83%);
 background-image: -moz-linear-gradient(bottom, #699C35 41%, #78C42B 66%, #81C73B 83%);
@@ -306,8 +306,8 @@ select {
 /*Carousel Layour*/
 .slide-content-container{ padding: 0 10px 0; position: absolute; top:0;}
 .slide-title {}
-.slide-content {width:315px;}
-.slide-content li{font-size: 13.5px; line-height: 1.3em; list-style-type: square;color: #000; margin-left: 25px;}
+.slide-content {width:315px;height: 100%;}
+.slide-content li{font-size: 13.5px; line-height: 1.3em; list-style-type: square;color: #000; margin-left: 25px; overflow: hidden;}
 .slide-content p{color:#393838; font-size:13.3px; line-height: 1.3em;}
 h1.gift-title{color: #cc3399; font-weight: bold; font-size: 34px; line-height: 1;}
 
