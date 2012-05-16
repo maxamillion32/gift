@@ -450,19 +450,27 @@ h1.cat-h1{font-size: 34px; line-height: 1; margin: 0;}
 #sort, #showresults{width: 150px; /* height: 25px; border: 0; */ }
 
 
+.prev{background: url(images/prev.png)no-repeat 0 0; width: 17px; height: 17px;}
+.next{background: url(images/next.png)no-repeat 0 0; width: 17px; height: 17px;}
+.page-numbers{color: #6699cc; font-size: 15px; font-weight: bold;}
+span.current{color: #666666; font-size: 15px; font-weight: bold;}
 
-
-
-
-
+.total-gifts{color:#6699cc;font-size: 15px; font-weight: bold;}
 
 /*Product gallery*/
 .product-box{float: left; width: 160px; min-height: 230px; border: 1px solid #CCC; margin-right: 10px;margin-bottom: 10px;}
-.product-box:nth-child(4n+6){margin-right: 0; }
-/* ul.product-list{margin: 5px;} */
+.right-col .product-box:nth-child(4n+4){margin-right: 0; }
+/* ul.product-list li{margin: 5px;} */
+ul.product-list img{margin: 5px;}
+
+/*Ribbon products*/
+span.ribbon-area{background: url(images/top-pick.png) no-repeat 0 0; width: 61px; height: 62px; position: absolute; margin: -4px;}
+span.ribbon-area-one{background: url(images/top-pick.png) no-repeat 0 0; width: 61px; height: 62px; position: absolute; z-index: 1; margin: -4px;}
+
+
 
 .p-title, .p-descr, .p-price{text-align: center;}
-.p-title, .p-descr{color: #919191; font-size: 14px; }
+.p-title a, .p-descr{color: #919191; font-size: 14px; }
 .p-price{color: #CC3399; font-size: 18px; font-weight: bold;}
 
 

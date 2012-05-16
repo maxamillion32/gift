@@ -11,8 +11,8 @@ $pagination = array(
 	'current' => $currentpage,
 	'show_all' => false,
 	'type' => 'plain',
-	'prev_text'    => __('&#171;', 'domain-themefit-hybrid'),
-    'next_text'    => __('&#187;', 'domain-themefit-hybrid')
+	'prev_text'    => __('&nbsp;&nbsp;&nbsp;&nbsp;', 'domain-themefit-hybrid'),
+    'next_text'    => __('&nbsp;&nbsp;&nbsp;&nbsp;', 'domain-themefit-hybrid')
 	);
 
 if( $wp_rewrite->using_permalinks() )

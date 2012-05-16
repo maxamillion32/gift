@@ -7,6 +7,7 @@ get_header();
 
 <div id="cat-container">
 <?php if (is_category()) { global $wp_query, $sort, $results, $paged;
+$ribbon=0;
 ?>
 
 <div id="cat-sidebar" class="left-sidebar">	
@@ -175,7 +176,7 @@ get_header();
 				$sort = get_option('current_sort', $sort);
 				$results = get_option('current_result', $results);		
 						if($sort=='high'){
-						echo "high";
+						//echo "high";
 							$args = array_merge( $wp_query->query, 
 							array(
 						   		'post_type' => 'post',
@@ -188,7 +189,7 @@ get_header();
 							query_posts($args);
 							
 					 }elseif($sort=='low'){
-					 echo "low";
+					 //echo "low";
 					 	$args =  array_merge( $wp_query->query,
 							array(
 						   		'post_type' => 'post',
@@ -201,7 +202,8 @@ get_header();
 							query_posts($args);
 					 
 					 }elseif($sort=='prod_picks'){
-					 	echo "picks";
+					 	//echo "picks";
+					 	$ribbon=1;
 					 	$args =  array_merge( $wp_query->query,
 							array(
 						   		'post_type' => 'post',
@@ -214,7 +216,7 @@ get_header();
 							query_posts($args);
 					 
 					 }elseif($sort=='prod_popularity'){
-					 echo "pop";
+					 //echo "pop";
 					 	$args =  array_merge( $wp_query->query,
 							array(
 						   		'post_type' => 'post',
@@ -228,8 +230,8 @@ get_header();
 					 
 					 }else{
 					 	
-					 	echo "default";
-					 	$results = 3; // initially only 12 porducts will be displayed. Change 3 to 12. and sort by newest.
+					 	//echo "default";
+					 	//$results = 3; // initially only 12 porducts will be displayed. Change 3 to 12. and sort by newest.
 						$args = array_merge( $wp_query->query, 
 							array(
 						   		'post_type' => 'post',
@@ -258,6 +260,8 @@ get_header();
 			<?php if (have_posts()) : ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 					
+					<?php if($ribbon==1):?>
+					<div><span class="ribbon-area"></span></div>
 					<div class="product-box">
 						
 						<ul class="product-list">
@@ -268,12 +272,53 @@ get_header();
 							<?php } ?>
 							
 							<li class="p-title"><a href="<?php the_permalink();?>"><?php the_title();?></a></li>
-							<li class="p-descr">description ssfksjfksj sfsfsjfkls fskjfksj skfjskjfks</li>
-							<li class="p-price"><?php echo get_post_meta($post->ID, "prod_price", true); ?></li>
+							<li class="p-descr"><?php echo get_post_meta($post->ID, "prod_desc", true); ?></li>
+							<li class="p-price"><?php echo '&#36;'.get_post_meta($post->ID, "prod_price", true).'' ?></li>
 						</ul>
 						
 					</div>
+					<?php else:?>
 					
+					
+					<?php $ribbon_data = get_post_meta($post->ID, "prod_picks", true); ?>
+					<?php if($ribbon_data=='Y'){?>
+					
+					<!-- <div><span class="ribbon-area"></span></div> -->
+					<div class="product-box">
+
+						<div><span class="ribbon-area-one"></span></div>				
+						<ul class="product-list">
+							<?php if(has_post_thumbnail() ) { ?>
+								<a href="<?php the_permalink();?>" title=""><?php the_post_thumbnail('product-thumbnail'); ?></a>
+							<?php }else{ ?>
+							<img src="<?php bloginfo('template_url');?>/images/no-image.jpg" width="150" height="150" alt="no-image">
+							<?php } ?>
+							
+							<li class="p-title"><a href="<?php the_permalink();?>"><?php the_title();?></a></li>
+							<li class="p-descr"><?php echo get_post_meta($post->ID, "prod_desc", true); ?></li>
+							<li class="p-price"><?php echo '&#36;'.get_post_meta($post->ID, "prod_price", true).'' ?></li>
+						</ul>
+						
+					</div>
+					<?php } else { ?>
+							
+					<div class="product-box">					
+						<ul class="product-list">
+							<?php if(has_post_thumbnail() ) { ?>
+								<a href="<?php the_permalink();?>" title=""><?php the_post_thumbnail('product-thumbnail'); ?></a>
+							<?php }else{ ?>
+							<img src="<?php bloginfo('template_url');?>/images/no-image.jpg" width="150" height="150" alt="no-image">
+							<?php } ?>
+							
+							<li class="p-title"><a href="<?php the_permalink();?>"><?php the_title();?></a></li>
+							<li class="p-descr"><?php echo get_post_meta($post->ID, "prod_desc", true); ?></li>
+							<li class="p-price"><?php echo '&#36;'.get_post_meta($post->ID, "prod_price", true).'' ?></li>
+						</ul>
+						
+					</div>
+										
+					<?php };?>
+				<?php endif;?>
 				
 				
 	
