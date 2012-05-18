@@ -67,22 +67,35 @@ $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent 
 <div style="clear:both">&nbsp;</div>
 <div id="top-picks">
 	<div class="top-picks-content">
-		<h2 class="top-picks-title">Top Picks for Valentine's Day Gifts</h2>
+	
+	<?php 
+		$choice_cat_title = get_option('choice_cat_title');
 		
+		$choice_cat = get_option('choice_cat');
+		
+		$args = array(
+			   		'post_type' => 'post',
+			   		'posts_per_page' => -1,
+			   		'meta_key' => 'prod_picks',
+			   		'meta_value' =>'Y',
+			   		'category_name' => $choice_cat
+			   	);
+				query_posts($args); 
+	?>
+		<h2 class="top-picks-title">Top Picks for <?php echo $choice_cat_title ?></h2>
+		<?php if (have_posts()) : ?>
 			<div id="jcarousel">
-				<a href=""><img src="<?php bloginfo('template_url');?>/images/gift-1.jpg"></a>
-				<a href=""><img src="<?php bloginfo('template_url');?>/images/gift-2.jpg"></a>
-				<a href=""><img src="<?php bloginfo('template_url');?>/images/gift-3.jpg"></a>
-				<a href=""><img src="<?php bloginfo('template_url');?>/images/gift-4.jpg"></a>
-				<a href=""><img src="<?php bloginfo('template_url');?>/images/gift-5.jpg"></a>
-				<a href=""><img src="<?php bloginfo('template_url');?>/images/gift-4.jpg"></a>
-				<a href=""><img src="<?php bloginfo('template_url');?>/images/gift-3.jpg"></a>
-				<a href=""><img src="<?php bloginfo('template_url');?>/images/gift-2.jpg"></a>
-				<a href=""><img src="<?php bloginfo('template_url');?>/images/gift-1.jpg"></a>
-				<a href=""><img src="<?php bloginfo('template_url');?>/images/gift-5.jpg"></a>
-				<a href=""><img src="<?php bloginfo('template_url');?>/images/gift-2.jpg"></a>
-				<a href=""><img src="<?php bloginfo('template_url');?>/images/gift-1.jpg"></a>
+			
+			<?php while ( have_posts() ) : the_post(); ?>
+				<?php if(has_post_thumbnail() ) { ?>
+					<a href="<?php the_permalink();?>" title=""><?php the_post_thumbnail('product-thumbnail'); ?></a>
+				<?php }else{ ?>
+				<img src="<?php bloginfo('template_url');?>/images/no-image.jpg" width="150" height="150" alt="no-image">
+				<?php } ?>
+			<?php endwhile;?>
 			</div>
+		<?php else : ?><h1 class="no-prod">Currently There are no products available!</h1><?php endif;  
+			wp_reset_query();?>
 		<a href="#" id="ui-carousel-next"><span>next</span></a>
 	    <a href="#" id="ui-carousel-prev"><span>prev</span></a>
 	</div>
@@ -93,37 +106,37 @@ $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent 
 	<div class="gift-men">
 		<div class="col_1_gift-men">
 			<div class="men-title">
-				<h3 class="gift-box-title">Gifts for Men</h3>
+				<h3 class="gift-box-title"><?php echo get_option('box_one_title')?></h3>
 			</div>
 			<div class="men-photo">
-				<img src="<?php bloginfo('template_url');?>/images/gifts-for-men.jpg">
+				<img src="<?php echo get_option('box_one_photo')?>">
 			</div>
 			<div class="gift-list">
-				<ul>
-					<li>Birthday Gifts</li>
-					<li>XXX Gifts</li>
-					<li>Birthday Gifts</li>
-					<li>Birthday Gifts</li>
-					<li>Birthday Gifts</li>
-				</ul>
+		<ul>
+			<li><a href="<?php echo get_option('box_one_link1') ?>"><?php echo get_option('box_one_link_title_1') ?></a></li>
+			<li><a href="<?php echo get_option('box_one_link2') ?>"><?php echo get_option('box_one_link_title_2') ?></a></li>
+			<li><a href="<?php echo get_option('box_one_link3') ?>"><?php echo get_option('box_one_link_title_3') ?></a></li>
+			<li><a href="<?php echo get_option('box_one_link4') ?>"><?php echo get_option('box_one_link_title_4') ?></a></li>
+			<li><a href="<?php echo get_option('box_one_link5') ?>"><?php echo get_option('box_one_link_title_5') ?></a></li>
+		</ul>
 			</div>
 		</div>
 	</div>
 	<div class="gift-women">
 		<div class="col_2_gift-women">
 			<div class="women-title">
-				<h3 class="gift-box-title">Gifts for Woman</h3>
+				<h3 class="gift-box-title"><?php echo get_option('box_two_title');?></h3>
 			</div>
 			<div class="women-photo">
-				<img src="<?php bloginfo('template_url');?>/images/gifts-for-men.jpg">
+				<img src="<?php echo get_option('box_two_photo')?>">
 			</div>
 			<div class="gift-list">
 				<ul>
-					<li>Birthday Gifts</li>
-					<li>XXX Gifts</li>
-					<li>Birthday Gifts</li>
-					<li>Birthday Gifts</li>
-					<li>Birthday Gifts</li>
+				<li><a href="<?php echo get_option('box_two_link1') ?>"><?php echo get_option('box_two_link_title_1') ?></a></li>
+				<li><a href="<?php echo get_option('box_two_link2') ?>"><?php echo get_option('box_two_link_title_2') ?></a></li>
+				<li><a href="<?php echo get_option('box_two_link3') ?>"><?php echo get_option('box_two_link_title_3') ?></a></li>
+				<li><a href="<?php echo get_option('box_two_link4') ?>"><?php echo get_option('box_two_link_title_4') ?></a></li>
+				<li><a href="<?php echo get_option('box_two_link5') ?>"><?php echo get_option('box_two_link_title_5') ?></a></li>
 				</ul>
 			</div>
 		</div>
@@ -131,37 +144,37 @@ $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent 
 	<div class="gift-baby">
 		<div class="col_3_gift-baby">
 			<div class="baby-title">
-				<h3 class="gift-box-title">Gifts for Babies</h3>
+				<h3 class="gift-box-title"><?php echo get_option('box_three_title');?></h3>
 			</div>
 			<div class="baby-photo">
-				<img src="<?php bloginfo('template_url');?>/images/gifts-for-men.jpg">
+				<img src="<?php echo get_option('box_three_photo')?>">
 			</div>
 			<div class="gift-list">
-				<ul>
-					<li>Birthday Gifts</li>
-					<li>XXX Gifts</li>
-					<li>Birthday Gifts</li>
-					<li>Birthday Gifts</li>
-					<li>Birthday Gifts</li>
-				</ul>
+			<ul>
+			<li><a href="<?php echo get_option('box_three_link1') ?>"><?php echo get_option('box_three_link_title_1') ?></a></li>
+			<li><a href="<?php echo get_option('box_three_link2') ?>"><?php echo get_option('box_three_link_title_2') ?></a></li>
+			<li><a href="<?php echo get_option('box_three_link3') ?>"><?php echo get_option('box_three_link_title_3') ?></a></li>
+			<li><a href="<?php echo get_option('box_three_link4') ?>"><?php echo get_option('box_three_link_title_4') ?></a></li>
+			<li><a href="<?php echo get_option('box_three_link5') ?>"><?php echo get_option('box_three_link_title_5') ?></a></li>
+			</ul>
 			</div>
 		</div>
 	</div>
 	<div class="gift-occassions">
 		<div class="col_4_gift-occassions">
 			<div class="occassions-title">
-				<h3 class="gift-box-title">Gifts for Occassions</h3>
+				<h3 class="gift-box-title"><?php echo get_option('box_four_title');?></h3>
 			</div>
 			<div class="occassions-photo">
-				<img src="<?php bloginfo('template_url');?>/images/gifts-for-men.jpg">
+				<img src="<?php echo get_option('box_four_photo')?>">
 			</div>
 			<div class="gift-list">
 				<ul>
-					<li>Birthday Gifts</li>
-					<li>XXX Gifts</li>
-					<li>Birthday Gifts</li>
-					<li>Birthday Gifts</li>
-					<li>Birthday Gifts</li>
+			<li><a href="<?php echo get_option('box_four_link1') ?>"><?php echo get_option('box_four_link_title_1') ?></a></li>
+			<li><a href="<?php echo get_option('box_four_link2') ?>"><?php echo get_option('box_four_link_title_2') ?></a></li>
+			<li><a href="<?php echo get_option('box_four_link3') ?>"><?php echo get_option('box_four_link_title_3') ?></a></li>
+			<li><a href="<?php echo get_option('box_four_link4') ?>"><?php echo get_option('box_four_link_title_4') ?></a></li>
+			<li><a href="<?php echo get_option('box_four_link5') ?>"><?php echo get_option('box_four_link_title_5') ?></a></li>
 				</ul>
 			</div>
 		</div>

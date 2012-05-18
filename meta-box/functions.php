@@ -50,7 +50,27 @@ function prod_details_meta($object, $box){
   			<p class="description">Enter Popularity (between 1 and 10 (where 1 is less popular , 10 is hot))</p>
   		</p>
 	
-	</div>  	
+	</div>
+<style type="text/css">
+	#up-date, #up-title, #up-link, #up-descr{  
+	padding: 9px;  
+	border: solid 1px #E5E5E5;  
+	outline: 0;  
+	font: normal 13px/100% Verdana, Tahoma, sans-serif;    
+	background: #FFFFFF;  
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+} 
+.lbl_1, .lbl_2, .lbl_3, .lbl_4 {
+	float: left;
+	text-align: left;
+	color: #336699;
+	width: 120px;
+	font-family:"Century Gothic"; font-size: 12px; font-weight:bold;
+	margin: 10px 0;
+}
+</style>  	
 <?php }
 add_action('save_post', 'save_details_post');
   function save_details_post(){

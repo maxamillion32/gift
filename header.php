@@ -111,9 +111,9 @@ $j = jQuery.noConflict();
 								
 								<ul class="s-icons">
 								Subscribe:
-									<li class="one"><a href=""><img src="<?php bloginfo('template_url');?>/images/social-rss.gif"></a></li>
-									<li class="one"><a href=""><img src="<?php bloginfo('template_url');?>/images/social-twitter.gif"></a></li>
-									<li class="one"><a href=""><img src="<?php bloginfo('template_url');?>/images/social-google-plus.gif"></a></li>
+									<li class="one"><a href="<?php echo get_option('rss_link'); ?>" target="_blank"><img src="<?php bloginfo('template_url');?>/images/social-rss.gif"></a></li>
+									<li class="one"><a href="<?php echo get_option('twt_link'); ?>" target="_blank"><img src="<?php bloginfo('template_url');?>/images/social-twitter.gif"></a></li>
+									<li class="one"><a href="<?php echo get_option('gplus_link'); ?>" target="_blank"><img src="<?php bloginfo('template_url');?>/images/social-google-plus.gif"></a></li>
 								</ul>
 
 <div class="fblike">										

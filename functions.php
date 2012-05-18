@@ -1,14 +1,14 @@
 <?php
 $current_path = dirname(__FILE__);
 
-if(is_admin()){
+//if(is_admin()){
+	require_once($current_path. '/theme-options.php');
 	require_once( $current_path. '/content-type/upcoming/functions.php');
 	require_once( $current_path. '/meta-box/functions.php');
 	
 	require_once( $current_path. '/store/dbtable-store.php');// create 'store_meta' table for store taxonomy
 	require_once( $current_path. '/store/functions.php');
-
-}
+//}
 
 // REmove admin bar
 if (!function_exists('disableAdminBar')) {
@@ -48,7 +48,9 @@ function my_setup(){
 	add_theme_support( 'post-thumbnails' );			// This theme uses post thumbnails
 	//set_post_thumbnail_size( 600, 390 ); // 299 pixels wide by 375 pixels tall, set last parameter to true for hard crop mode
 	add_image_size( 'featured-image', 	680, 280 );
-	add_image_size( 'product-thumbnail', 	150, 150 );	
+	add_image_size( 'product-featured-image', 	250, 250 );
+	add_image_size( 'product-thumbnail', 	150, 150 );
+	add_image_size( 'sidebar-product-thumbnail', 	80, 80 );	
 }
 endif;
 add_action( 'init', 'register_my_menus' );
@@ -95,7 +97,27 @@ function my_register_sidebars() {
 		$category_sidebar=array(
 			'id' => 'category_sidebar',
 			'name' => __( 'Category page Sidebar' ),
-			'description' => __( 'This is for google ad in left sidebar of category page.' ),
+			'description' => __( 'This is for google ad in left sidebar of category page. Recommended size: 160 X 600 pixels.' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<h2 class="widget-title">',
+			'after_title' => '</h2>'
+		);
+		
+		$item_google_adsense_sidebar_one=array(
+			'id' => 'item_google_adsense_sidebar_one',
+			'name' => __( '1. Google Adsense Sidebar' ),
+			'description' => __( 'This is for google adsense in bottom of items page.Recommended size: 312 X 282 pixels.' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<h2 class="widget-title">',
+			'after_title' => '</h2>'
+		);
+		
+		$item_google_adsense_sidebar_two=array(
+			'id' => 'item_google_adsense_sidebar_two',
+			'name' => __( '2. Google Adsense Sidebar' ),
+			'description' => __( 'This is for google adsense in bottom of items page.Recommended size: 312 X 282 pixels.' ),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget' => '</div>',
 			'before_title' => '<h2 class="widget-title">',
@@ -125,7 +147,8 @@ function my_register_sidebars() {
 		/* Register the sidebars. */
 		register_sidebar( $sidebar_search );
 		register_sidebar( $category_sidebar );
-		//register_sidebar( $f_sidebar_one );
+		register_sidebar( $item_google_adsense_sidebar_one );
+		register_sidebar( $item_google_adsense_sidebar_two );
 }
 
 function upcoming_ticker(){
@@ -196,8 +219,15 @@ function my_admin_scripts() {
 	wp_enqueue_script('media-upload');
 	wp_enqueue_script('thickbox');
 	wp_register_script('category-upload', WP_CONTENT_URL.'/themes/gift/category/catupload.js', array('jquery','media-upload','thickbox'));
+	wp_register_script('boxone-upload', WP_CONTENT_URL.'/themes/gift/category/box-one.js', array('jquery','media-upload','thickbox'));
+	wp_register_script('boxtwo-upload', WP_CONTENT_URL.'/themes/gift/category/box-two.js', array('jquery','media-upload','thickbox'));
+	wp_register_script('boxthree-upload', WP_CONTENT_URL.'/themes/gift/category/box-three.js', array('jquery','media-upload','thickbox'));
+	wp_register_script('boxfour-upload', WP_CONTENT_URL.'/themes/gift/category/box-four.js', array('jquery','media-upload','thickbox'));
 	wp_enqueue_script('category-upload');
-	
+	wp_enqueue_script('boxone-upload');
+	wp_enqueue_script('boxtwo-upload');
+	wp_enqueue_script('boxthree-upload');
+	wp_enqueue_script('boxfour-upload');
 }
 
 function my_admin_styles() {
@@ -205,7 +235,7 @@ function my_admin_styles() {
 	
 }
 
-// These actions were called for both category and store extra fields. We cant use more than one of each fucntion in one theme.
+// These actions were called for both category and store extra fields. We can't use more than one of each fucntion in one theme.
 add_action('admin_print_scripts', 'my_admin_scripts');
 add_action('admin_print_styles', 'my_admin_styles');
 

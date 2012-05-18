@@ -1,36 +1,15 @@
 <?php
-echo '<style type="text/css" media="screen">
-      	#up-date, #up-title, #up-link, #up-descr{  
-	padding: 9px;  
-	border: solid 1px #E5E5E5;  
-	outline: 0;  
-	font: normal 13px/100% Verdana, Tahoma, sans-serif;    
-	background: #FFFFFF;  
-	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
-	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
-	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
-} 
-.lbl_1, .lbl_2, .lbl_3, .lbl_4 {
-	float: left;
-	text-align: left;
-	color: #336699;
-	width: 120px;
-	font-family:"Century Gothic"; font-size: 12px; font-weight:bold;
-	margin: 10px 0;
-}
-      </style>';
-
 add_action('init', 'upcoming_occassions_register');
 function upcoming_occassions_register() {
 	$labels = array(
-		'name' => _x('Upcoming Occassions', 'post type general name'),
-		'singular_name' => _x('Upcoming Occassions List', 'post type singular name'),
-		'add_new' => _x('Add New', 'Occassion Item'),
-		'add_new_item' => __('Add New Occassion'),
-		'edit_item' => __('Edit Occassion List Item'),
-		'new_item' => __('New Occassion List Item'),
-		'view_item' => __('View Occassion List Item'),
-		'search_items' => __('Search Occassion List'),
+		'name' => _x('Upcoming Occasions', 'post type general name'),
+		'singular_name' => _x('Upcoming Occasions List', 'post type singular name'),
+		'add_new' => _x('Add New', 'Occasion Item'),
+		'add_new_item' => __('Add New Occasion'),
+		'edit_item' => __('Edit Occasion List Item'),
+		'new_item' => __('New Occasion List Item'),
+		'view_item' => __('View Occasion List Item'),
+		'search_items' => __('Search Occasion List'),
 		'not_found' =>  __('Nothing found'),
 		'not_found_in_trash' => __('Nothing found in Trash'),
 		'parent_item_colon' => ''
@@ -119,7 +98,26 @@ function upcoming_details_meta($object, $box){
   			<input name="upcoming_descr" id="up-descr" value= "<?php echo $upcoming_descr ?>" size="50" type="textfield">
   		</p>
 	</div>
-
+<style type="text/css">
+	#up-date, #up-title, #up-link, #up-descr{  
+	padding: 9px;  
+	border: solid 1px #E5E5E5;  
+	outline: 0;  
+	font: normal 13px/100% Verdana, Tahoma, sans-serif;    
+	background: #FFFFFF;  
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+} 
+.lbl_1, .lbl_2, .lbl_3, .lbl_4 {
+	float: left;
+	text-align: left;
+	color: #336699;
+	width: 120px;
+	font-family:"Century Gothic"; font-size: 12px; font-weight:bold;
+	margin: 10px 0;
+}
+</style>
 <?php }
 
 add_action('save_post', 'save_details');

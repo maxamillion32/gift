@@ -92,21 +92,21 @@ function add_store(){
         <td>
             <input type="text" size="40" name="category_photo" id="category_photo" value="" />
             <input id="upload_image_button" type="button" value="Upload logo" />
-            <p class="description">Image Size: </p>
+            <p class="description">Image Size: maximum width 120 pixels</p>
         </td>
     </tr>
     <tr class="form-field">
         <th scope="row" valign="top"><label for="store_url"><strong>Store URL</strong></label></th>
         <td>
             <input type="text" name="store_url" id="store_url" size="50" value=""/><br />
-            <p class="description">Enter Store URL</p>
+            <p class="description">Enter Store affiliation URL</p>
         </td>
     </tr>
     <tr class="form-field">
         <th scope="row" valign="top"><label for="store_promo"><strong>Store Promotion</strong></label></th>
         <td>
             <textarea name="store_promo" id="store_promo" cols="50" rows="10" value=""></textarea><br />
-            <p class="description">Enter Store Promotion code</p>
+            <p class="description">Enter Store Promotion code (support html code)</p>
         </td>
     </tr>	
     <?php }
@@ -151,21 +151,21 @@ function edit_store($tag, $taxonomy){
         	<img src="<?php echo $category_photo; ?>" /><br/><br/>
             <input type="text" size="40" name="category_photo" id="category_photo" value="<?php echo $category_photo; ?>" />
             <input id="upload_image_button" type="button" value="Upload Image" />
-            <p class="description">Image Size: </p>
+            <p class="description">Image Size: maximum width 120 pixels</p>
         </td>
     </tr>
     <tr class="form-field">
         <th scope="row" valign="top"><label for="store_url"><strong>Store URL</strong></label></th>
         <td>
             <input type="text" name="store_url" id="store_url" size="50" value="<?php echo $store_url; ?>"/><br />
-            <p class="description">Enter Store URL</p>
+            <p class="description">Enter Store affiliation URL</p>
         </td>
     </tr>
     <tr class="form-field">
         <th scope="row" valign="top"><label for="store_promo"><strong>Store Promotion</strong></label></th>
         <td>
             <textarea name="store_promo" id="store_promo" cols="50" rows="10"><?php echo $store_promo; ?></textarea><br />
-            <p class="description">Enter Store Promotion code</p>
+            <p class="description">Enter Store Promotion code (support html code)</p>
         </td>
     </tr>	
 

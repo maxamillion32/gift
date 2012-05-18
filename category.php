@@ -12,7 +12,9 @@ $ribbon=0;
 
 <div id="cat-sidebar" class="left-sidebar">	
 	
-	<div class="cat-title"></div>
+	<div class="cat-title">
+		<div><span class="">Gift Ideas</span></div>
+	</div>
 	
 	
 	<div style="clear:both">&nbsp;</div>
@@ -323,7 +325,7 @@ $ribbon=0;
 	
 	
 			<?php endwhile;  ?>
-			<?php else : ?><h1>Currently There are no posts available!</h1><?php endif; ?>
+			<?php else : ?><h1>Currently There are no products available!</h1><?php endif; ?>
 </div>
 
 </div>
