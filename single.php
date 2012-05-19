@@ -52,7 +52,6 @@ global $wp_query;
 			<div style="clear:both">&nbsp;</div>	
 			<?php
 				$store_term_name = get_the_term_list($post->ID, 'store', '', ', ','');
-				//echo $term_name;
 				$mycat = get_term_by('slug', $store_term_name, 'store');
 		    	$term_id = $mycat->term_id;
 			?>
@@ -60,7 +59,17 @@ global $wp_query;
 			
 			<div class="store-col">
 				<p class="store-title">Store:</p>
-				<a href="#"><img src="<?php echo get_metadata('store', $term_id, 'category_photo', true); ?>" alt=""/></a>
+				<?php
+					// URL Cloaking code here
+					$site_addr = get_option('siteurl');
+					$addr = strip_tags($store_term_name);
+					$go = "go";
+					$my_site = $site_addr ."&#47;" .$go ."&#47;" .$addr;
+				?>	
+				
+				
+				<a href="<?php echo $my_site?>" onclick="parent.location.href='<?php echo get_metadata('store', $term_id, 'store_url', true); ?>';
+return event.returnValue=false"><img src="<?php echo get_metadata('store', $term_id, 'category_photo', true); ?>" alt=""/></a>
 			</div>
 			<div class="promo-col">
 				<p class="promo-item">Promotion Code:</p>
@@ -73,7 +82,6 @@ global $wp_query;
 			
 <?php endwhile;  ?>	
 
-				
 				
 				<!-- Display 4 top picks randomly from current category -->
 				<?php 
