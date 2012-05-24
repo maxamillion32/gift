@@ -58,6 +58,7 @@ function register_my_menus() {
 	register_nav_menus(
 		array(
 			'Primary' => __( 'Primary Menu' ),
+			'Secondary' => __( 'Footer Menu' )
 		)
 	);
 }
@@ -104,6 +105,29 @@ function my_register_sidebars() {
 			'after_title' => '</h2>'
 		);
 		
+		/*Page Sidebar*/
+		$page_sidebar=array(
+			'id' => 'page_sidebar',
+			'name' => __( 'Page Sidebar: Sponsored Links' ),
+			'description' => __( 'This is for Sponsored Links' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<h2 class="widget-title">',
+			'after_title' => '</h2>'
+		);
+		
+		/*Page Sidebar*/
+		$pro_sidebar=array(
+			'id' => 'pro_sidebar',
+			'name' => __( 'Product Sidebar: More related gifts' ),
+			'description' => __( 'This is for More related gifts' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<h2 class="widget-title">',
+			'after_title' => '</h2>'
+		);
+		
+		
 		$item_google_adsense_sidebar_one=array(
 			'id' => 'item_google_adsense_sidebar_one',
 			'name' => __( '1. Google Adsense Sidebar' ),
@@ -146,6 +170,8 @@ function my_register_sidebars() {
 		
 		/* Register the sidebars. */
 		register_sidebar( $sidebar_search );
+		register_sidebar( $page_sidebar );
+		//register_sidebar( $pro_sidebar );
 		register_sidebar( $category_sidebar );
 		register_sidebar( $item_google_adsense_sidebar_one );
 		register_sidebar( $item_google_adsense_sidebar_two );
@@ -272,4 +298,13 @@ function getCurrentCatID(){
 	}
 	return $cat_ID;
 }
+
+function custom_excerpt_length( $length ) {
+	return 40;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+function new_excerpt_more( $more ) {
+	return '...';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
 ?>

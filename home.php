@@ -1,7 +1,8 @@
 <?php 
 /*Template name: Home*/
 get_header();
-global $post;
+global $post, $results_rec, $results_occ, $results_price;
+
 update_option('current_result', '');
 update_option('current_sort', '');
 ?>
@@ -35,34 +36,189 @@ $child_pages = $wpdb->get_results("SELECT * FROM $wpdb->posts WHERE post_parent 
 </div>
 <div id="gift-finder">
 	<div class="gift-finder-form">
+	<?php
+		
+				global $wpdb;
+				//Query for display all children for recipient category 
+				$querystr = "SELECT $wpdb->term_taxonomy.term_id 
+							FROM $wpdb->terms, $wpdb->term_taxonomy
+							WHERE $wpdb->terms.name='Recipients'
+							AND $wpdb->terms.term_id = $wpdb->term_taxonomy.parent
+							";
+				$result_rec = $wpdb->get_results($querystr);
+				
+				
+				//Query for display all children for occasion category 
+				$querystr = "SELECT $wpdb->term_taxonomy.term_id 
+							FROM $wpdb->terms, $wpdb->term_taxonomy
+							WHERE $wpdb->terms.name='Occasions'
+							AND $wpdb->terms.term_id = $wpdb->term_taxonomy.parent
+							";
+				$result_occasion = $wpdb->get_results($querystr);
+				
+
+				
+	?>
 	
-	<div class="select-one">	
-		<select name="selectionField" class="recipient"> 
-		  <option value="CA" >Any Recipient</option>
-		  <option value="CO" >Men</option>
-		  <option value="CN" >Woman</option>
-		</select>
-	</div>
+	
 	<div class="select-one">
-		<select name="selectionField" class="occassion"> 
-		  <option value="CA" >Any Occassion</option>
-		  <option value="CO" >XMas</option>
-		  <option value="CN" >Good Friday</option>
-		</select>
+	<form method="post" id="searrec" action="">
+		<select name="selectionRecipient" id="selectionRecipient" onChange="this.form.submit();"> 
+		  			
+		  			<?php 
+		  				$results_rec = get_option('current_recipient');
+		  				if(isset($_POST['selectionRecipient'])){
+		  					$results_rec = $_POST['selectionRecipient'];
+		  					update_option('current_recipient', $results_rec);
+		  					$results_rec = get_option('current_recipient');
+		  					 
+		  				}
+		  			?>
+		  
+	<option <?php if($results_rec=='Any Recipient'){ echo 'selected="selected"';}?> value="Any Recipient" >Any Recipient</option>
+		  	<?php foreach($result_rec as $rec):
+					$t_id = $rec->term_id;
+					$term = get_term($t_id , 'category' );
+					$t_name = $term->name;?>
+<option <?php 
+		if($results_rec==$t_name){ echo 'selected="selected"';}?>value="<?php echo $t_name;?>"><?php echo $t_name;?></option>
+		  <?php endforeach;?>
+		  </select>	
+		<input type="hidden" id="submitrec" value="Search" />	
+		</form>	
 	</div>
+	
+	<?//php echo $results_rec;?>
+	
+	
 	<div class="select-one">
-		<select name="selectionField" class="price"> 
-		  <option value="CA" >Any Price</option>
-		  <option value="CO" >100</option>
-		  <option value="CN" >200</option>
+	<form method="post" id="searoccasion" action="">
+		<select name="selectionOccasion" class="occassion" onChange="this.form.submit();"> 
+		  			
+		  			<?php 
+		  				$results_occ = get_option('current_occasion');
+		  				if(isset($_POST['selectionOccasion'])){
+		  					$results_occ = $_POST['selectionOccasion'];
+		  					update_option('current_occasion', $results_occ);
+							$results_occ = get_option('current_occasion');
+		  				}
+		  			?>
+		  	
+		  	<?php if($results_rec=='Men'):?>
+		  		 	
+		  					<?//php $results_men = $_POST['selectionOccasion'];?>
+		  					
+		  			<option 
+		  			<?php if($results_occ=='Anniversary Gifts for Men'){ echo 'selected="selected"';}?>value="Anniversary Gifts for Men">Anniversary Gifts for Men</option>
+		  			<option 
+		  			<?php if($results_occ=='1st Anniversary Gifts'){ echo 'selected="selected"';}?>value="1st Anniversary Gifts">1st Anniversary Gifts</option>
+		  			<option 
+		  			<?php if($results_occ=='2nd Anniversary Gifts'){ echo 'selected="selected"';}?>value="2nd Anniversary Gifts">2nd Anniversary Gifts</option>
+		  			<option 
+		  			<?php if($results_occ=='Wedding Anniversary Gifts'){ echo 'selected="selected"';}?>value="Wedding Anniversary Gifts">Wedding Anniversary Gifts</option>
+		  			<option 
+		  			<?php if($results_occ=='Birthday Gifts for Men'){ echo 'selected="selected"';}?>value="Birthday Gifts for Men">Birthday Gifts for Men</option>
+		  			<option 
+		  			<?php if($results_occ=='30th Birthday Gifts'){ echo 'selected="selected"';}?>value="30th Birthday Gifts">30th Birthday Gifts</option>
+		  			<option 
+		  			<?php if($results_occ=='40th birthday gifts'){ echo 'selected="selected"';}?>value="40th birthday gifts">40th birthday gifts</option>
+		  			<option 
+		  			<?php if($results_occ=='50th Birthday Gifts'){ echo 'selected="selected"';}?>value="50th Birthday Gifts">50th Birthday Gifts</option>
+		  			<option 
+		  			<?php if($results_occ=='Housewarming Gifts'){ echo 'selected="selected"';}?>value="Housewarming Gifts">Housewarming Gifts</option>
+		  			<option 
+		  			<?php if($results_occ=='Retirement Gifts for Men'){ echo 'selected="selected"';}?>value="Retirement Gifts for Men">Retirement Gifts for Men</option>
+		  	
+		  	<?php elseif($results_rec=='Women'):?>
+		  			
+		  			<?//php $results_women = $_POST['selectionOccasion'];?>
+		  			
+		  			<option 
+		  			<?php if($results_occ=='Anniversary Gifts for Women'){ echo 'selected="selected"';}?>value="Anniversary Gifts for Women">Anniversary Gifts for Women</option>
+		  			<option 
+		  			<?php if($results_occ=='1st Anniversary Gifts'){ echo 'selected="selected"';}?>value="1st Anniversary Gifts">1st Anniversary Gifts</option>
+		  			<option 
+		  			<?php if($results_occ=='2nd Anniversary Gifts'){ echo 'selected="selected"';}?>value="2nd Anniversary Gifts">2nd Anniversary Gifts</option>
+		  			<option 
+		  			<?php if($results_occ=='Wedding Anniversary Gifts'){ echo 'selected="selected"';}?>value="Wedding Anniversary Gifts">Wedding Anniversary Gifts</option>
+		  			<option 
+		  			<?php if($results_occ=='Birthday Gifts for Women'){ echo 'selected="selected"';}?>value="Birthday Gifts for Women">Birthday Gifts for Women</option>
+		  			<option 
+		  			<?php if($results_occ=='30th Birthday Gifts'){ echo 'selected="selected"';}?>value="30th Birthday Gifts">30th Birthday Gifts</option>
+		  			<option 
+		  			<?php if($results_occ=='40th birthday gifts'){ echo 'selected="selected"';}?>value="40th birthday gifts">40th birthday gifts</option>
+		  			<option 
+		  			<?php if($results_occ=='50th Birthday Gifts'){ echo 'selected="selected"';}?>value="50th Birthday Gifts">50th Birthday Gifts</option>
+		  			<option 
+		  			<?php if($results_occ=='Housewarming Gifts'){ echo 'selected="selected"';}?>value="Housewarming Gifts">Housewarming Gifts</option>
+		  			<option 
+		  			<?php if($results_occ=='Bridal Shower Gifts'){ echo 'selected="selected"';}?>value="Bridal Shower Gifts">Bridal Shower Gifts</option>
+		  			<option 
+		  			<?php if($results_occ=='Retirement Gifts for Women'){ echo 'selected="selected"';}?>value="Retirement Gifts for Women">Retirement Gifts for Women</option>
+		  				  			
+		  	<?php else:?>
+		  		<option <?php 
+		  		if($results_occ=='Any Occasion'){ echo 'selected="selected"';}?> value="Any Occassion" >Any Occassion</option>
+				  	<?php foreach($result_occasion as $occ):
+							$t_id = $occ->term_id;
+							$term = get_term($t_id , 'category' );
+							$t_name = $term->name;?>
+				  	<option 
+				  	<?php if($results_occ==$t_name){ echo 'selected="selected"';}?>value="<?php echo $t_name;?>"value="<?php echo $t_name;?>"><?php echo $t_name;?></option>
+				  <?php endforeach;?>
+		  	
+		  <?php endif;?>
+		  
 		</select>
+		<input type="hidden" id="submitoccasion" value="Search" />	
+	</form>
+	</div>
+	<?//php echo $results_occ;?>
+	
+		
+	<div class="select-one">
+	<form method="post" id="searprice" action="">
+		<select name="selectionPrice" class="price" onChange="this.form.submit();"> 
+						
+						<?php 
+		  				$results_price = get_option('current_price');
+		  				if(isset($_POST['selectionPrice'])){
+		  					$results_price = $_POST['selectionPrice'];
+		  					update_option('current_price', $results_price);
+		  					$results_price = get_option('current_price');
+		  				}
+		  			?>
+		
+		
+		  <option <?php if($results_price=='Any Price'){ echo 'selected="selected"';}?> value="Any Price" >Any Price</option>
+		  <option <?php if($results_price=='50'){ echo 'selected="selected"';}?> value="50" >0-50</option>
+		  <option <?php if($results_price=='100'){ echo 'selected="selected"';}?>value="100" >50-100</option>
+		  <option <?php if($results_price=='150'){ echo 'selected="selected"';}?>value="150" >100-150</option>
+		  <option <?php if($results_price=='200'){ echo 'selected="selected"';}?> value="200" >150-200</option>
+		  <option <?php if($results_price=='250'){ echo 'selected="selected"';}?> value="250" >200-250</option>
+		  <option <?php if($results_price=='300'){ echo 'selected="selected"';}?> value="300" >250-300</option>
+		  <option <?php if($results_price=='350'){ echo 'selected="selected"';}?> value="350" >300-350</option>
+		  <option <?php if($results_price=='400'){ echo 'selected="selected"';}?> value="400" >350-400</option>
+		  <option <?php if($results_price=='450'){ echo 'selected="selected"';}?> value="450" >400-450</option>
+		  <option <?php if($results_price=='500'){ echo 'selected="selected"';}?> value="500" >450-500</option>
+		</select>
+		<input type="hidden" id="submitprice" value="Search" />
+		</form>
 	</div>
 		
+		<input type="submit" id="submit" value="Search" />	
 		
-		<input type="submit" id="submit" value="Search" />
-		
-	</div>
 </div>
+	
+	<?//php echo $results_rec;?>
+	<?//php echo $results_occ;?>
+	<?//php echo $results_price;?>
+	
+</div>
+
+
+
+
 
 <div style="clear:both">&nbsp;</div>
 <div id="top-picks">

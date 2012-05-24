@@ -2,7 +2,7 @@
 get_header();
 update_option('current_result', '');
 update_option('current_sort', '');
-global $wp_query;
+global $wp_query, $post;
 ?>
 <div id="main-content">
 <div id="cat-container">
@@ -10,9 +10,15 @@ global $wp_query;
 <div id="left-content" class="left-col">
 	
 	<?php 
-	while ( have_posts() ) : the_post(); ?>
+	while ( have_posts() ) : the_post(); 
 		
-		
+	$cur_post_id = $post->ID;
+	//echo $cur_post_id; 
+	$cat_array = get_the_category($cur_post_id);
+	$cur_cat_id = $cat_array[0]->cat_ID;
+	//echo $cur_cat_id;
+	
+	?>	
 			
 			<h1 class="cat-h1"><?php the_title(); ?></h1>
 			<!-- Social Icons-->
@@ -181,7 +187,9 @@ return event.returnValue=false"><img src="<?php echo get_metadata('store', $term
 							array(
 						   		'post_type' => 'post',
 						   		'posts_per_page' => 10,
-						   		'term_id' => $cat_term_id
+						   		//'term_id' => $cat_term_id
+						   		'cat' => $cur_cat_id,
+						   		'post__not_in' => array($cur_post_id)
 						   		
 						   	));
 							query_posts($args);?>

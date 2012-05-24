@@ -2,7 +2,11 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<?php if (is_search()) { ?>
+	   <meta name="robots" content="noindex, nofollow" /> 
+	<?php } ?>
 <title>
 <?php
 		wp_title( '|', true, 'right' );
@@ -77,7 +81,12 @@ $j = jQuery.noConflict();
 		$j( "#ui-carousel-next" )
 			.add( "#ui-carousel-prev" )
 		
-
+		
+		$j("#submit").click(function() {
+    			
+    			window.location.href="<?php bloginfo('url');?>/giftfinder";
+    		});
+	
 		
 });
 
@@ -125,13 +134,12 @@ $j = jQuery.noConflict();
 </div>
 
 </div>
-							<div class="search-bar">
-								<?php if ( is_active_sidebar( 'sidebar_search' ) ) : ?>
-									<?php dynamic_sidebar( 'sidebar_search' ); ?>
-								<?php else: ?>
-									<?php // ?>
-								<?php endif;?>
-							</div>
+				<div class="search-bar">
+					<form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+			<input type="text" class="field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search for gifts', 'twentyeleven' ); ?>" />
+			<input type="submit" class="submit" name="submit" id="searchsubmit" value="<?php esc_attr_e( 'Search', 'twentyeleven' ); ?>" />
+					</form>
+				</div>
 							
 						</div>
 					

@@ -75,6 +75,8 @@ function register_mysettings() {
 	register_setting( 'baw-settings-group', 'box_four_link_title_5' );
 	
 	
+	register_setting( 'baw-settings-group', 'footer_title_1' );
+	register_setting( 'baw-settings-group', 'footer_descr_1' );
 }
 
 
@@ -333,6 +335,25 @@ function baw_settings_page() {
 	<p class="submit">
     	<input type="submit" class="button-primary" value="Save Changes" />
     </p>
+    
+    
+    
+<div style="clear:both">&nbsp;</div>
+<h2 class="section-title">About Gift Ideas & Items (in footer)</h2><hr>
+    
+    <p>
+    	<label for="title">Title</label> 
+    	<input type="text" name="footer_title_1" class="box_setting" value="<?php echo get_option('footer_title_1'); ?>" />
+    </p>
+    <p>
+		<label for="title">Short descriptions</label>
+    	<textarea name="footer_descr_1" class="box_setting_textarea" cols="50" rows="10"><?php echo get_option('footer_descr_1'); ?></textarea>
+    </p>
+	
+	
+	<p class="submit">
+    	<input type="submit" class="button-primary" value="Save Changes" />
+    </p>    
 
 </form>
 </div>
@@ -359,6 +380,21 @@ h3.box-number{font-family:"Century Gothic"; font-size: 20px; font-weight:normal;
 	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 } 
+
+.box_setting_textarea{
+	padding: 9px;  
+	border: solid 1px #E5E5E5;  
+	 outline: 0;  
+	font: normal 13px/100% Verdana, Tahoma, sans-serif;  
+	background: #FFFFFF;  
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+
+}
+
+
+
 .img_btn{
 	padding: 8px;  
 	border: solid 1px #E5E5E5;  

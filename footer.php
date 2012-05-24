@@ -2,14 +2,15 @@
 	
 	<div class="footer-inner">
 		<div class="footer_col_1">
-			<h4>About Gift Ideas & Items</h4>
+			<h4><?php echo get_option('footer_title_1'); ?></h4>
 			<p>
-				Gift Ideas & Items website helps you find the perfect gift for your friends and relatives. Buying gifts have never been easier. You can now shop online for creative and cool gifts for your loved ones at the comfort of your home. Our gift selections will definitely bring smiles to your recipients.
+				<?php echo get_option('footer_descr_1'); ?>
 			</p>
 		</div>
 	
-		<div class="footer_col_2">
-			<h4>Links</h4>
+		<!--
+<div class="footer_col_2">
+			
 				<ul>
 					<li><a href="#">Home</a></li>
 					<li><a href="#">About Us</a></li>
@@ -18,14 +19,31 @@
 					<li><a href="#">Privacy Policy</a></li>
 				</ul>
 		</div>
+-->			
+				<div class="footer_col_2">
+						<h4>Links</h4>
+						<?php wp_nav_menu( array( 
+        						'theme_location' => 'Secondary', 
+        						'menu_id' => '', 
+        						'menu_class' => '', 
+        						'container_id' =>'',
+        						'container_class' =>''
+        					));?> 
+		
+				</div>
+		
 		
 		<div class="footer_col_3">
 			<h4>Sign up our newsletter</h4>
 			<p>Receive updates and news on the latest gifts!</p>
-				<form>
+				<!--
+<form>
 					<input type=text id="newsletter" placeholder="email address">
 					<input type="button"id="newsletter-button" value="Submit">
 				</form>
+-->		
+
+		<?php echo do_shortcode( '[contact-form-7 id="277" title="newsletter"]' ); ?>
 		</div>
 		
 		

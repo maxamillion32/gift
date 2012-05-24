@@ -50,14 +50,36 @@ ul.s-icons li{display: inline-block; clear:both;}
 .screen-reader-text{display: none;}
 
 .search-bar{float: right; }
-#s{background: url(images/search-bg.gif) no-repeat 0 0; width: 280px; height: 41px; border: 0;}
+#s{background: url(images/search-bg.gif) no-repeat 0 0; width: 280px; height: 12px; border: 0; padding: 13px 0 15px 5px;}
 #searchsubmit{background: url(images/search-button.gif) no-repeat 0 0; width: 41px; height: 37px; border: 0; text-indent: -999em;}
 
+::-webkit-input-placeholder {
+   color: #888888;
+   font-weight: bold;
+}
+
+:-moz-placeholder {
+   color: #888888;
+   font-weight: bold;
+}
 
 
+.placeholder{color: #888888;}
 
+ul.listnav li a{
 
+	color: #6699CC;
+    font-size: 13.3px;
+    font-weight: bold;
+}
 
+ul.listnav p{
+	
+	 color: #666666;
+    font-size: 13.5px;
+    line-height: 1.5em;
+
+}
 
 /*Menu layout*/
 #menu-container{clear:both;}
@@ -454,10 +476,13 @@ p.price-item{color:#cc3399; font-weight: bold; font-size: 25.5px; line-height: 0
 
 span.promo-code-item{font-size:11.8px; color: #333; line-height: 1.2em;}
 
+.cat-upper-page{
+	background: #F5F5F5; width: 210px; min-height: 300px;
 
-
-
-
+	-moz-border-radius: 10px; 
+    -webkit-border-radius: 10px; 
+    -border-radius: 10px;
+}
 
 .cat-upper{background: url(images/left-sidebar-bg.gif) repeat-y 0 0; width: 210px; min-height: 775px;}
 .cat-inner{padding: 10px;}
@@ -560,6 +585,35 @@ small{color:#333333;}
 .footer_col_2 li{line-height: 1.3em;}
 .footer_col_2 a{color:#333333; font-size: 12px; font-weight: bold;}
 
-.footer_col_3 input#newsletter{background: url(images/newsletter-input.png) no-repeat 0 0; width:231px; height: 24px; border: 0;}
+#newsletter{
+	background: url(images/newsletter-input.png) no-repeat 0 3px; 
+	width:231px; 
+	/* height: 32px; */ 
+	border: 0; 
+	/* padding-left: 5px;  */
+	/* padding-top: 0; */
+	
+	
+	height: 12px;
+	padding: 10px 0 10px 5px;
+}
 
-.footer_col_3 input#newsletter-button{background: url(images/newsletter-submit.png) no-repeat 0 0; width:84px; height: 24px; border: 0; color: #FFF; font-weight: bold; font-size: 13.5px;}
+#newsletter-button{
+	background: url(images/newsletter-submit.png) no-repeat 0 2px; 
+	width:84px; 
+	height: 26px; 
+	border: 0; 
+	color: #FFF; 
+	font-weight: bold; 
+	font-size: 14px;
+}
+
+
+div.wpcf7 .watermark {
+    padding-top: 0;
+}
+
+
+
+
+
