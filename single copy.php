@@ -178,13 +178,15 @@ return event.returnValue=false"><img src="<?php echo get_metadata('store', $term
 			<div class="cat-upper">		
 		 		<div class="cat-inner">	
 				<!-- 
-						Display 10 related items from current store and current category.
-						 
+						Display 10 related items from current store and current category 
 						First we will display from store, if we dont find anything from store then
-						we will display products from the current categories.
-				-->				
-						<?php 
-							$args_store = array(
+						we will display products from the curren categories.
+				-->
+				<?php 
+						//$cat_term_id =  getCurrentCatID(); // get current category ID
+						//$cat_term = get_term( $cat_term_id, 'category' );	
+					
+						$args = array(
 									'tax_query' => array(
 										array(
 											'taxonomy' => 'store',
@@ -192,15 +194,23 @@ return event.returnValue=false"><img src="<?php echo get_metadata('store', $term
 											'terms' => $mycat
 										)
 									),
-									'post_type' => 'post',
-									'posts_per_page' => 10,
-									'post__not_in' => array($cur_post_id)
-							);
-			
-					query_posts($args_store);
-			
-	if (have_posts()) : 
-		while ( have_posts() ) : the_post(); 
+									'post_type' => 'post'
+								);	
+						
+						$args =  array_merge( $args,
+							array(
+						   		'post_type' => 'post',
+						   		'posts_per_page' => 10,
+						   		//'term_id' => $cat_term_id
+						   		'category__in' => $cur_cat_,
+						   		'post__not_in' => array($cur_post_id)
+						   		
+						   	));
+							query_posts($args);?>
+				
+				
+				
+		<?php while ( have_posts() ) : the_post(); 
 			
 			?>
 			<div class="related-prd-thumb">
@@ -220,42 +230,7 @@ return event.returnValue=false"><img src="<?php echo get_metadata('store', $term
 			<div class="border-bottom"></div>
 			<div style="clear:both">&nbsp;</div>
 							
-		<?php endwhile;  
-				
-	else:
-			$args_cat =
-					array(
-				   		'post_type' => 'post',
-				   		'posts_per_page' => 10,
-				   		//'term_id' => $cat_term_id
-				   		'category__in' => $cur_cat_,
-				   		'post__not_in' => array($cur_post_id)
-				   		
-				   	);
-			query_posts($args_cat);
-		
-			while ( have_posts() ) : the_post();?>
-			<div class="related-prd-thumb">
-							
-			<?php if(has_post_thumbnail() ) { ?>
-					<a href="<?php the_permalink();?>" title=""><?php the_post_thumbnail('sidebar-product-thumbnail'); ?></a>
-			<?php }else{ ?>
-				<img src="<?php bloginfo('template_url');?>/images/no-image.jpg" width="80" height="80" alt="no-image">
-			<?php } ?>
-							
-			</div>				
-			<div class="related-prd-title">	
-				<a href="<?php the_permalink();?>" title=""><?php the_title();?></a>
-			</div>
-			
-			<div style="clear:both">&nbsp;</div>
-			<div class="border-bottom"></div>
-			<div style="clear:both">&nbsp;</div>
-							
-			<?php endwhile;  
-				
-	endif;			
-				
+				<?php endwhile;  
 				wp_reset_query();?>	
 
 			
