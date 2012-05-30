@@ -28,7 +28,7 @@ global $wp_query, $post;
 			
 			// We will use $cur_cat_ in query.
 			
-			print_r($cur_cat_);
+			//print_r($cur_cat_);
 	
 	?>	
 			
@@ -51,7 +51,7 @@ global $wp_query, $post;
 
 			<div class="post-descr">
 				<div>
-					<?php the_content();?>
+					<?php echo wpautop(the_content());?>
 				</div>
 					
 			</div>

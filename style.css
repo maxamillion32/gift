@@ -187,31 +187,73 @@ background-image: -webkit-gradient(
 ------------------*/
 
 
-.nv ul{ display:none;margin:0;padding: 14px 0 35px 20px;position:absolute;top:100%;left:0%;width:330px; border: 1px solid #CCC;
-	-moz-box-shadow:    3px 3px 5px 6px #ccc;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  box-shadow:         3px 3px 5px 6px #ccc;
-  background: #FFF;
+.nv ul{ 
+		
+		display:none;
+		margin:0;
+		padding: 15px 0 15px 15px;
+		position:absolute;
+		top:100%;
+		left:0%;
+		border: 1px solid #CCC;
+		
+	  	background: #FFF;
+		   
+		width:250px !important;
 }
 
-.nv ul li{ float:left; background: #FFF;  }
+.nv ul li{ 
+		
+		float:left; 
+		background: #FFF; 
+		width:38%!important;		
+}
 
-.nv ul li a{ font-size: 13.3px!important; color: #6D6D6D!important; text-align: center;}
+.nv ul li a{ 
 
-.nv ul li a:hover,.nv ul li a:active,.nv ul li:hover a{ color: #99cc66!important; text-decoration: underline;}
+		font-size: 13.3px!important; 
+		color: #6D6D6D!important; 
+		/* text-align: center; */
+		
+		
+}
+
+.nv ul li a:hover,
+.nv ul li a:active,
+.nv ul li:hover a{ 
+		color: #99cc66!important; 
+		text-decoration: underline;
+}
+
+
+
+
 
 .nv ul ul{ top:0%;left:100%}
 
-.nv ul ul li a:hover,.nv ul ul li a:active,.nv ul ul li:hover a{}
 
 .nv li:hover ul ul{ display:none}
 
 .nv li:hover ul,.nv ul li:hover ul{ display:block}
 
 
-.sub-menu li a{text-align: left; padding: 3px ; line-height: 2.5em;}
+.sub-menu li a{
+		line-height: 1.5em;
+}
 
-
+.nv ul li:hover{
+	
+		float:left; 
+		background: #FFF; 
+		width:38%!important;
+	
+	/* list-style-image: url(images/nav-arrow.gif) no-repeat 0 0; */
+	
+	background: url(images/nav-arrow.gif) no-repeat 0 0!important;
+	background-position: 0 5px!important;
+	
+	
+}
 
 .sub-menu li.current_page_item a{
 	color:#003366;
@@ -219,28 +261,18 @@ background-image: -webkit-gradient(
 
 .sub-menu li.current_page_item { background: #FFF!important;}
 
-/*
-.sub-menu li:hover a, .sub-menu li a:hover, .sub-menu li a.hover{
-	width: 0px;
-height: 0px;
-border-style: solid;
-border-width: 5px 0 5px 10px;
-border-color: transparent transparent transparent #007bff;
-line-height: 0px;
-_border-color: #000000 #000000 #000000 #007bff;
-_filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
 
-}
-*/
 
 
 .sub-menu li{
+/*
 	display: block; 
 	float: left; 
 	position: relative; 
-	padding:0!important; 
-	/* border-right: 0!important; */
-	min-width: 150px;
+*/
+	padding:0 0 0 15px!important; 
+	border-right: 0!important;
+	/* min-width: 150px; */
 }
 
 .sub-menu li:hover{
@@ -254,8 +286,15 @@ _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
 }
 
 
-.sub-menu li:nth-child(2n+1) {border-right: 1px solid #CCC!important; height:100%;}
-.sub-menu li:nth-child(2n+2) {border-right: 0!important; padding-left: 20px!important; }
+.sub-menu li:nth-child(2n+1) {border-right: 1px solid #CCC!important; height:100%; margin-right: 20px!important;}
+.sub-menu li:nth-child(2n+2) {border-right: 0!important; padding-left: 15px!important; }
+
+.sub-menu li:nth-child(even){float:right;}
+
+
+
+
+
 
 
 

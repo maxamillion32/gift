@@ -96,7 +96,7 @@ $ribbon=0;
 						$term = get_term( $term_id, 'category' ); 
 						$desc = $term->description;
 				
-						echo '<p>'.$desc.'</p>'; ?>
+						echo wpautop($desc); ?>
 			</div>
 			
 			<!-- Category image-->
