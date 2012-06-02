@@ -299,11 +299,11 @@ background-image: -webkit-gradient(
 
 
 /*Home page*/
-#main-content{clear: both; position: relative; top:65px;}
+#main-content{clear: both; /* position: relative; top:65px; */ padding: 65px 0 0;}
 #slider{float: left; width:680px;}
 #gift-finder{float: right; }
 #gift-finder{background: url(images/ribbon-bg.png) no-repeat 0 0; width: 233px; height: 302px; margin: -23px 0;}
-.gift-finder-form {position: absolute; top: 125px; margin-left: 40px;}
+.gift-finder-form {position: absolute; /* top: 125px; margin-left: 40px; */ margin: 148px 40px 0;}
 
 
 /*Perfect dropdown list with custom background image For all browsers
@@ -496,6 +496,10 @@ h5.find-gifts-h5, .find-gifts a{text-transform: uppercase; color: #CC3399; font-
 .cat-descr{float: left; width:345px;}
 .cat-descr p{margin: 0;color: #393838; font-size: 13.5px; line-height: 1.5em;}
 .cat-img{float: left; width: 334px;}
+
+.cat-img img{width: 334px; height: 215px;}
+
+
 
 .post-descr{float: left; width:415px;}
 .post-descr div{padding: 0 5px 0 0;}

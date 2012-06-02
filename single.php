@@ -87,7 +87,7 @@ global $wp_query, $post;
 				
 				
 				<a href="<?php echo $my_site?>" onclick="parent.location.href='<?php echo get_metadata('store', $term_id, 'store_url', true); ?>';
-return event.returnValue=false"><img src="<?php echo get_metadata('store', $term_id, 'category_photo', true); ?>" alt=""/></a>
+return event.returnValue=false"><img src="<?php echo get_metadata('store', $term_id, 'category_photo', true); ?>" alt="" width="120" height="60"/></a>
 			</div>
 			<div class="promo-col">
 				<p class="promo-item">Promotion Code:</p>
@@ -113,7 +113,6 @@ return event.returnValue=false"><img src="<?php echo get_metadata('store', $term
 						   		'meta_value' =>'Y',
 						   		'term_id' => $cat_term_id,
 						   		'orderby' => rand
-						   		
 						   	);
 							query_posts($args); 
 				

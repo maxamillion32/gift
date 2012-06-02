@@ -126,7 +126,7 @@ $j = jQuery.noConflict();
 							<div class="social-icons">
 								
 								<ul class="s-icons">
-								Subscribe:
+								<li class="c1">Subscribe:</li>
 									<li class="one"><a href="<?php echo get_option('rss_link'); ?>" target="_blank"><img src="<?php bloginfo('template_url');?>/images/social-rss.gif"></a></li>
 									<li class="one"><a href="<?php echo get_option('twt_link'); ?>" target="_blank"><img src="<?php bloginfo('template_url');?>/images/social-twitter.gif"></a></li>
 									<li class="one"><a href="<?php echo get_option('gplus_link'); ?>" target="_blank"><img src="<?php bloginfo('template_url');?>/images/social-google-plus.gif"></a></li>
@@ -134,8 +134,8 @@ $j = jQuery.noConflict();
 
 <div class="fblike">										
 <!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_default_style ">
-<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+<div class="addthis_toolbox addthis_default_style">
+<a class="addthis_button_facebook_like"></a>
 </div>
 <!-- AddThis Button END -->
 </div>

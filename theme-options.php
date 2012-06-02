@@ -22,6 +22,8 @@ function register_mysettings() {
 	register_setting( 'baw-settings-group', 'twt_link' );
 	register_setting( 'baw-settings-group', 'gplus_link' );
 	
+	register_setting( 'baw-settings-group', 'find_gifts_link' );
+	
 	register_setting( 'baw-settings-group', 'box_one_title' );
 	register_setting( 'baw-settings-group', 'box_one_photo' );
 	register_setting( 'baw-settings-group', 'box_one_link1' );
@@ -131,6 +133,25 @@ function baw_settings_page() {
     </p>  
 
 
+
+<div style="clear:both">&nbsp;</div>
+<h2 class="section-title">Find Gifts URL</h2>
+	<p>
+    	<label for="rss">Find gifts Link</label> 
+    <input type="text" name="find_gifts_link" class="choice_cat_title" value="<?php echo get_option('find_gifts_link'); ?>" />
+    </p>
+    
+    <p class="submit">
+    	<input type="submit" class="button-primary" value="Save Changes" />
+    </p>
+    
+    
+    
+    
+    
+    
+    
+    
 <div style="clear:both">&nbsp;</div>
 <h2 class="section-title">4 Box's in home page</h2><hr>
 

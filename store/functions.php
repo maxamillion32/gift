@@ -148,7 +148,7 @@ function edit_store($tag, $taxonomy){
     <tr class="form-field">
         <th scope="row" valign="top"><label for="store_photo"><strong>Store Logo</strong></label></th>
         <td>
-        	<img src="<?php echo $category_photo; ?>" /><br/><br/>
+        	<img src="<?php echo $category_photo; ?>" width="120" height="60"/><br/><br/>
             <input type="text" size="40" name="category_photo" id="category_photo" value="<?php echo $category_photo; ?>" />
             <input id="upload_image_button" type="button" value="Upload Image" />
             <p class="description">Image Size: maximum width 120 pixels</p>

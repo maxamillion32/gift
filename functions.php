@@ -199,8 +199,8 @@ function upcoming_ticker(){
 	</div>
 	<div class="find-gifts">
 		<ul>
-			<li><h5 class="find-gifts-h5"><a href="#">FIND GIFTS</a></h5></li>
-			<li><a href="#"><img src="<?php bloginfo('template_url');?>/images/upcoming-occassions-arrow.png"></a></li>
+			<li><h5 class="find-gifts-h5"><a href="<?php echo get_option('find_gifts_link'); ?>">FIND GIFTS</a></h5></li>
+			<li><a href="<?php echo get_option('find_gifts_link'); ?>"><img src="<?php bloginfo('template_url');?>/images/upcoming-occassions-arrow.png"></a></li>
 		</ul>
 	</div>
 
